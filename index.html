@@ -1,123 +1,265 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Espaço Aline Marth - Massoterapia da Estética Funcional</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Google Fonts -->
+    <title>Espaço Aline Marth | Massoterapia da Estética Funcional</title>
+    <meta name="description"
+        content="Espaço Aline Marth — Massoterapia da Estética Funcional. Bem-estar, saúde e beleza com procedimentos personalizados.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <!-- BoxIcons for icons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="light-mode">
+<body class="light-theme">
 
-    <!-- Preloader (Vinheta) -->
-    <div id="preloader">
-        <div class="preloader-content">
-            <div class="logo-circle-anim">
-                <span class="logo-text-large">Espaço</span>
-                <span class="logo-subtext">Massoterapia da</span>
-                <span class="logo-subtext-bold">Estética Funcional</span>
+    <!-- ========== INTRO / VINHETA ========== -->
+    <div id="intro-screen">
+        <div class="intro-content">
+            <svg class="intro-logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="90" stroke="var(--accent)" stroke-width="1.5" fill="none"
+                    class="intro-circle" />
+                <circle cx="100" cy="100" r="70" fill="var(--accent)" class="intro-fill" />
+                <text x="100" y="90" text-anchor="middle" fill="#fff" font-family="'Playfair Display', serif"
+                    font-size="28" font-style="italic" class="intro-text-main">Espaço</text>
+                <text x="100" y="112" text-anchor="middle" fill="rgba(255,255,255,0.7)"
+                    font-family="'Inter', sans-serif" font-size="7" letter-spacing="2" text-transform="uppercase"
+                    class="intro-text-sub">MASSOTERAPIA DA</text>
+                <text x="100" y="125" text-anchor="middle" fill="rgba(255,255,255,0.9)"
+                    font-family="'Inter', sans-serif" font-size="8" letter-spacing="1" class="intro-text-sub2">ESTÉTICA
+                    FUNCIONAL</text>
+            </svg>
+            <div class="intro-bar">
+                <div class="intro-bar-fill"></div>
             </div>
-            <div class="loader-line"></div>
         </div>
     </div>
 
-    <!-- Theme Toggle -->
-    <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">
-        <i class='bx bx-moon' id="theme-icon"></i>
-    </button>
-
-    <header class="header">
-        <div class="container header-container">
-            <div class="logo-area">
-                <div class="logo-circle">
-                    <span class="logo-text-large">Espaço</span>
-                    <span class="logo-subtext">Massoterapia da</span>
-                    <span class="logo-subtext-bold">Estética Funcional</span>
+    <!-- ========== HEADER / NAVBAR ========== -->
+    <header id="header">
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-mark">
+                    <span class="logo-initial">E</span>
+                </div>
+                <div class="logo-text-group">
+                    <span class="logo-name">Espaço Aline Marth</span>
                 </div>
             </div>
+
+            <nav class="desktop-nav">
+                <a href="#inicio">Início</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#contato" class="nav-cta">Agendar</a>
+            </nav>
+
+            <div class="header-actions">
+                <button id="theme-toggle" aria-label="Alternar Tema">
+                    <i class="fas fa-sun light-icon"></i>
+                    <i class="fas fa-moon dark-icon"></i>
+                </button>
+                <button class="menu-mobile-btn" id="mobile-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="#inicio">Início</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#contato">Agendar</a>
         </div>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="container hero-container">
-                <div class="hero-content">
-                    <h1 class="hero-title fade-in">Bem-vindo(a) ao Espaço Aline Marth</h1>
-                    <p class="hero-subtitle fade-in delay-1">É um prazer receber você aqui! 🥰</p>
-                    <p class="hero-text fade-in delay-2">Para seguirmos com o seu atendimento personalizado e focado em
-                        resultados, precisamos conhecer um pouco mais sobre você.</p>
+    <!-- ========== HERO ========== -->
+    <section id="inicio" class="hero">
+        <div class="hero-bg">
+            <div class="hero-gradient"></div>
+            <div class="hero-particles" id="particles"></div>
+        </div>
+        <div class="container hero-container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>Bem-estar & Estética Funcional
+                </div>
+                <h1>Cuide de você com <span class="text-accent">quem entende</span> do seu corpo</h1>
+                <p class="hero-subtitle">É um prazer receber você aqui! 🥰 No Espaço Aline Marth, cada procedimento é
+                    personalizado para transformar sua saúde e autoestima.</p>
+                <div class="hero-buttons">
+                    <a href="#contato" class="btn btn-primary btn-lg"><i class="fab fa-whatsapp"></i> Agendar Agora</a>
+                    <a href="#servicos" class="btn btn-outline btn-lg">Nossos Serviços</a>
                 </div>
             </div>
-        </section>
+        </div>
+        <div class="hero-scroll">
+            <div class="scroll-indicator">
+                <div class="scroll-dot"></div>
+            </div>
+        </div>
+    </section>
 
-        <!-- Form Section -->
-        <section class="form-section">
-            <div class="container form-container fade-in delay-3">
-                <div class="form-card">
-                    <h2 class="form-title">Inicie seu Atendimento</h2>
-                    <p class="form-description">Preencha rapidamente os dados abaixo e você será direcionado ao nosso
-                        WhatsApp.</p>
-
-                    <form id="contact-form">
-                        <div class="form-group">
-                            <label for="name">Qual seu nome?</label>
-                            <input type="text" id="name" placeholder="Ex: Maria" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="age">Sua Idade?</label>
-                            <input type="number" id="age" placeholder="Ex: 30" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="health">Tem alguma doença crônica?</label>
-                            <input type="text" id="health" placeholder="Ex: Não / Hipertensão..." required>
-                        </div>
-                        <div class="form-group flex-group">
-                            <div class="half-group">
-                                <label for="weight">Peso (kg)</label>
-                                <input type="number" id="weight" step="0.1" placeholder="Ex: 65.5" required>
+    <!-- ========== SOBRE ========== -->
+    <section id="sobre" class="section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-visual" data-aos="fade-right">
+                    <div class="about-card">
+                        <div class="about-card-inner">
+                            <div class="about-icon-grid">
+                                <div class="icon-box">
+                                    <i class="fas fa-spa"></i>
+                                    <span>Relaxamento</span>
+                                </div>
+                                <div class="icon-box">
+                                    <i class="fas fa-heart-pulse"></i>
+                                    <span>Saúde</span>
+                                </div>
+                                <div class="icon-box">
+                                    <i class="fas fa-hand-holding-heart"></i>
+                                    <span>Cuidado</span>
+                                </div>
+                                <div class="icon-box">
+                                    <i class="fas fa-star"></i>
+                                    <span>Beleza</span>
+                                </div>
                             </div>
-                            <div class="half-group">
-                                <label for="height">Altura (m)</label>
-                                <input type="number" id="height" step="0.01" placeholder="Ex: 1.65" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content" data-aos="fade-left">
+                    <span class="section-label">Sobre o Espaço</span>
+                    <h2>Massoterapia da <span class="text-accent">Estética Funcional</span></h2>
+                    <p class="about-text">No Espaço Aline Marth, acreditamos que o verdadeiro bem-estar nasce da união
+                        entre saúde e beleza. Nossos procedimentos são pensados individualmente para cada paciente,
+                        respeitando seu corpo, suas necessidades e seus objetivos.</p>
+                    <p class="about-text">Com técnicas de massoterapia, estética funcional e protocolos personalizados,
+                        proporcionamos resultados reais e duradouros para quem busca qualidade de vida.</p>
+                    <div class="about-info">
+                        <div class="info-item">
+                            <i class="fas fa-user-nurse"></i>
+                            <div>
+                                <strong>Atendimento Humanizado</strong>
+                                <span>Cada cliente é único e merece atenção exclusiva.</span>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="procedure">Qual procedimento de seu interesse?</label>
-                            <select id="procedure" required>
-                                <option value="" disabled selected>Selecione uma opção</option>
-                                <option value="Massagem Relaxante">Massagem Relaxante</option>
-                                <option value="Drenagem Linfática">Drenagem Linfática</option>
-                                <option value="Massagem Modeladora">Massagem Modeladora</option>
-                                <option value="Limpeza de Pele">Limpeza de Pele</option>
-                                <option value="Outro / Não tenho certeza">Outro / Não tenho certeza</option>
-                            </select>
+                        <div class="info-item">
+                            <i class="fas fa-certificate"></i>
+                            <div>
+                                <strong>Protocolos Personalizados</strong>
+                                <span>Procedimentos adaptados ao seu perfil e saúde.</span>
+                            </div>
                         </div>
-
-                        <button type="submit" class="btn-submit">
-                            <span>Enviar e Chamar no WhatsApp</span>
-                            <i class='bx bxl-whatsapp'></i>
-                        </button>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer class="footer">
-        <div class="container footer-container">
-            <p>&copy; 2026 Espaço Aline Marth - Todos os direitos reservados.</p>
-            <p class="footer-contact"><i class='bx bxl-whatsapp'></i> (21) 98327-8742</p>
+    <!-- ========== SERVIÇOS ========== -->
+    <section id="servicos" class="section section-dark">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">O que oferecemos</span>
+                <h2>Nossos <span class="text-accent">Serviços</span></h2>
+                <p class="section-desc">Procedimentos completos em massoterapia e estética funcional focados em
+                    resultados.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="service-card-glow"></div>
+                    <div class="service-icon"><i class="fas fa-hands"></i></div>
+                    <h3>Massagem Relaxante</h3>
+                    <p>Técnicas suaves que aliviam tensões, reduzem o estresse e promovem profundo relaxamento muscular.
+                    </p>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="service-card-glow"></div>
+                    <div class="service-icon"><i class="fas fa-droplet"></i></div>
+                    <h3>Drenagem Linfática</h3>
+                    <p>Movimentos ritmados que estimulam o sistema linfático, combatendo inchaço e melhorando a
+                        circulação.</p>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="service-card-glow"></div>
+                    <div class="service-icon"><i class="fas fa-fire-flame-curved"></i></div>
+                    <h3>Massagem Modeladora</h3>
+                    <p>Movimentos vigorosos e precisos que auxiliam na redução de medidas e remodelagem corporal.</p>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="service-card-glow"></div>
+                    <div class="service-icon"><i class="fas fa-face-smile-beam"></i></div>
+                    <h3>Limpeza de Pele</h3>
+                    <p>Tratamento facial completo que remove impurezas e renova a pele, devolvendo luminosidade e
+                        vitalidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA / CONTATO ========== -->
+    <section id="contato" class="section section-cta">
+        <div class="container">
+            <div class="cta-card" data-aos="fade-up">
+                <div class="cta-content">
+                    <span class="section-label">Agende seu horário</span>
+                    <h2>Comece sua Transformação <span class="text-accent">Agora</span></h2>
+                    <p>Para um atendimento personalizado, precisamos de algumas informações. Clique no botão abaixo e
+                        preencha um rápido formulário pelo WhatsApp.</p>
+
+                    <div class="cta-info-list">
+                        <div class="cta-info-item"><i class="fas fa-check-circle"></i> Nome completo</div>
+                        <div class="cta-info-item"><i class="fas fa-check-circle"></i> Idade</div>
+                        <div class="cta-info-item"><i class="fas fa-check-circle"></i> Histórico de saúde</div>
+                        <div class="cta-info-item"><i class="fas fa-check-circle"></i> Peso e altura</div>
+                        <div class="cta-info-item"><i class="fas fa-check-circle"></i> Procedimento desejado</div>
+                    </div>
+
+                    <a href="https://wa.me/5521983278742?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20atendimento!%20%F0%9F%A5%B0"
+                        target="_blank" class="btn btn-primary btn-lg btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+                    </a>
+
+                    <p class="cta-phone"><i class="fas fa-phone"></i> (21) 98327-8742</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo-area">
+                    <div class="logo-mark small">
+                        <span class="logo-initial">E</span>
+                    </div>
+                    <span class="footer-brand">Espaço Aline Marth</span>
+                </div>
+                <p>&copy; 2026 Espaço Aline Marth — Massoterapia da Estética Funcional. Todos os direitos reservados.
+                </p>
+            </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 

@@ -1,69 +1,96 @@
+/* ==========================================
+   Espaço Aline Marth — JavaScript
+   ========================================== */
+
 document.addEventListener('DOMContentLoaded', () => {
-    // ---- PRELOADER (VINHETA) ----
-    const preloader = document.getElementById('preloader');
 
+    // ---- INTRO (VINHETA) ----
+    const intro = document.getElementById('intro-screen');
     setTimeout(() => {
-        preloader.style.opacity = '0';
-        preloader.style.visibility = 'hidden';
+        intro.classList.add('hidden');
+        setTimeout(() => { intro.style.display = 'none'; }, 800);
+    }, 2800);
 
-        setTimeout(() => {
-            const fadeElements = document.querySelectorAll('.fade-in');
-            fadeElements.forEach(el => el.classList.add('visible'));
-        }, 300);
-    }, 2000); // 2 segundos de preloader
+    // ---- AOS INIT ----
+    AOS.init({
+        once: true,
+        duration: 800,
+        easing: 'ease-out-cubic',
+        offset: 80
+    });
 
-    // ---- THEME TOGGLE (CLARO/ESCURO) ----
+    // ---- THEME TOGGLE ----
     const themeBtn = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
     const body = document.body;
+    const saved = localStorage.getItem('alinemarth-theme');
 
-    const savedTheme = localStorage.getItem('theme');
-
-    if (savedTheme === 'dark') {
-        body.classList.replace('light-mode', 'dark-mode');
-        themeIcon.classList.replace('bx-moon', 'bx-sun');
+    if (saved === 'dark') {
+        body.classList.replace('light-theme', 'dark-theme');
     }
 
     themeBtn.addEventListener('click', () => {
-        if (body.classList.contains('light-mode')) {
-            body.classList.replace('light-mode', 'dark-mode');
-            themeIcon.classList.replace('bx-moon', 'bx-sun');
-            localStorage.setItem('theme', 'dark');
+        if (body.classList.contains('light-theme')) {
+            body.classList.replace('light-theme', 'dark-theme');
+            localStorage.setItem('alinemarth-theme', 'dark');
         } else {
-            body.classList.replace('dark-mode', 'light-mode');
-            themeIcon.classList.replace('bx-sun', 'bx-moon');
-            localStorage.setItem('theme', 'light');
+            body.classList.replace('dark-theme', 'light-theme');
+            localStorage.setItem('alinemarth-theme', 'light');
         }
     });
 
-    // ---- WHATSAPP REDIRECT FORM ----
-    const form = document.getElementById('contact-form');
+    // ---- NAVBAR SCROLL  ----
+    const header = document.getElementById('header');
+    const heroSection = document.querySelector('.hero');
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
+    function handleScroll() {
+        const scrollY = window.scrollY;
+        // Scrolled state
+        if (scrollY > 80) {
+            header.classList.add('scrolled');
+            header.classList.remove('hero-nav');
+        } else {
+            header.classList.remove('scrolled');
+            header.classList.add('hero-nav');
+        }
+    }
 
-        const name = document.getElementById('name').value.trim();
-        const age = document.getElementById('age').value.trim();
-        const health = document.getElementById('health').value.trim();
-        const weight = document.getElementById('weight').value.trim();
-        const height = document.getElementById('height').value.trim();
-        const procedure = document.getElementById('procedure').value;
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
-        const phoneNumber = "5521983278742";
+    // ---- MOBILE MENU ----
+    const mobileBtn = document.getElementById('mobile-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-        let message = `Olá, vim pelo site e gostaria de agendar um atendimento!\n\n`;
-        message += `*Meus dados:*\n`;
-        message += `👤 *Nome:* ${name}\n`;
-        message += `🎂 *Idade:* ${age} anos\n`;
-        message += `🏥 *Doença Crônica:* ${health}\n`;
-        message += `⚖️ *Peso:* ${weight} kg\n`;
-        message += `📏 *Altura:* ${height} m\n`;
-        message += `💅 *Procedimento de interesse:* ${procedure}\n\n`;
-        message += `Aguardando retorno. 🥰`;
-
-        const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-
-        window.open(whatsappUrl, '_blank');
+    mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+        const icon = mobileBtn.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
     });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            const icon = mobileBtn.querySelector('i');
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-times');
+        });
+    });
+
+    // ---- HERO PARTICLES ----
+    const particlesContainer = document.getElementById('particles');
+    if (particlesContainer) {
+        for (let i = 0; i < 30; i++) {
+            const p = document.createElement('div');
+            p.classList.add('particle');
+            p.style.left = Math.random() * 100 + '%';
+            p.style.animationDelay = Math.random() * 15 + 's';
+            p.style.animationDuration = (10 + Math.random() * 20) + 's';
+            p.style.width = (2 + Math.random() * 3) + 'px';
+            p.style.height = p.style.width;
+            p.style.opacity = (0.2 + Math.random() * 0.4);
+            particlesContainer.appendChild(p);
+        }
+    }
 });
