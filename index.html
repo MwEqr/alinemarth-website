@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espaço Aline Marth - Massoterapia da Estética Funcional</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- BoxIcons for icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body class="light-mode">
+
+    <!-- Preloader (Vinheta) -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="logo-circle-anim">
+                <span class="logo-text-large">Espaço</span>
+                <span class="logo-subtext">Massoterapia da</span>
+                <span class="logo-subtext-bold">Estética Funcional</span>
+            </div>
+            <div class="loader-line"></div>
+        </div>
+    </div>
+
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">
+        <i class='bx bx-moon' id="theme-icon"></i>
+    </button>
+
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo-area">
+                <div class="logo-circle">
+                    <span class="logo-text-large">Espaço</span>
+                    <span class="logo-subtext">Massoterapia da</span>
+                    <span class="logo-subtext-bold">Estética Funcional</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title fade-in">Bem-vindo(a) ao Espaço Aline Marth</h1>
+                    <p class="hero-subtitle fade-in delay-1">É um prazer receber você aqui! 🥰</p>
+                    <p class="hero-text fade-in delay-2">Para seguirmos com o seu atendimento personalizado e focado em
+                        resultados, precisamos conhecer um pouco mais sobre você.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Section -->
+        <section class="form-section">
+            <div class="container form-container fade-in delay-3">
+                <div class="form-card">
+                    <h2 class="form-title">Inicie seu Atendimento</h2>
+                    <p class="form-description">Preencha rapidamente os dados abaixo e você será direcionado ao nosso
+                        WhatsApp.</p>
+
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Qual seu nome?</label>
+                            <input type="text" id="name" placeholder="Ex: Maria" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Sua Idade?</label>
+                            <input type="number" id="age" placeholder="Ex: 30" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="health">Tem alguma doença crônica?</label>
+                            <input type="text" id="health" placeholder="Ex: Não / Hipertensão..." required>
+                        </div>
+                        <div class="form-group flex-group">
+                            <div class="half-group">
+                                <label for="weight">Peso (kg)</label>
+                                <input type="number" id="weight" step="0.1" placeholder="Ex: 65.5" required>
+                            </div>
+                            <div class="half-group">
+                                <label for="height">Altura (m)</label>
+                                <input type="number" id="height" step="0.01" placeholder="Ex: 1.65" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="procedure">Qual procedimento de seu interesse?</label>
+                            <select id="procedure" required>
+                                <option value="" disabled selected>Selecione uma opção</option>
+                                <option value="Massagem Relaxante">Massagem Relaxante</option>
+                                <option value="Drenagem Linfática">Drenagem Linfática</option>
+                                <option value="Massagem Modeladora">Massagem Modeladora</option>
+                                <option value="Limpeza de Pele">Limpeza de Pele</option>
+                                <option value="Outro / Não tenho certeza">Outro / Não tenho certeza</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn-submit">
+                            <span>Enviar e Chamar no WhatsApp</span>
+                            <i class='bx bxl-whatsapp'></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <p>&copy; 2026 Espaço Aline Marth - Todos os direitos reservados.</p>
+            <p class="footer-contact"><i class='bx bxl-whatsapp'></i> (21) 98327-8742</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
